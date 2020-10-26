@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using HtmlParser.ConsoleApp.Strategies;
+﻿using System.Threading.Tasks;
 
 namespace HtmlParser.ConsoleApp
 {
@@ -9,25 +6,10 @@ namespace HtmlParser.ConsoleApp
     {
         public static void Main(string[] args)
         {
-            var url = "https://www.simbirsoft.com/";
-            var outputFileName = $"{Guid.NewGuid()}.txt";
+            const string url = "https://www.simbirsoft.com/";
 
-            WebPageExtractor.Run(url, outputFileName);
-
-            var fileLength = new FileInfo(outputFileName).Length;
-            var freeMemory = GC.GetTotalMemory(true);
-
-            IParseStrategy parseStrategy;
-            if (freeMemory > fileLength)
-            {
-                parseStrategy = new FullReadParseStrategy();
-            }
-            else
-            {
-                parseStrategy = new PartialReadParseStrategy();
-            }
-
-            Task.WaitAll(parseStrategy.Parse(outputFileName));
+            var processor = new WebPageProcessor();
+            Task.WaitAll(processor.Run(url));
         }
     }
 }

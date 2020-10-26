@@ -4,9 +4,9 @@ using System.Net;
 
 namespace HtmlParser.ConsoleApp
 {
-    public class WebPageExtractor
+    public class WebPageDownloader
     {
-        public static void Run(string url, string outputFileName)
+        public static void LoadToFile(string url, string outputFileName)
         {
             var request = WebRequest.Create(url);
             var response = request.GetResponse();

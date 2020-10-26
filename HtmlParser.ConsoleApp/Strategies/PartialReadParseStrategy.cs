@@ -1,30 +1,39 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
+using HtmlParser.ConsoleApp.ManualParsing;
 
 namespace HtmlParser.ConsoleApp.Strategies
 {
-    public class PartialReadParseStrategy : IParseStrategy
+    public class PartialReadParseStrategy : ParseStrategyBase
     {
-        private const int BufferSize = 1024 * 1024;
-
-        public async Task Parse(string fileName)
+        private readonly ParseConfiguration _configuration;
+        
+        public PartialReadParseStrategy()
         {
-            await using var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            using var sr = new StreamReader(fs);
+            _configuration = ParseConfiguration.Default();
+        }
+
+        public PartialReadParseStrategy(ParseConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        public override async Task Parse(StreamReader streamReader)
+        {
+            var parser = new ManualParser(_configuration.ExcludeTags);
 
             char[] buffer = { };
             var index = 0;
 
-            while (!sr.EndOfStream)
+            while (!streamReader.EndOfStream)
             {
-                await sr.ReadBlockAsync(buffer, index, BufferSize);
+                await streamReader.ReadBlockAsync(buffer, index, _configuration.BufferSize);
 
                 var textBlock = buffer.ToString();
+                parser.ParseBlock(textBlock);
 
-                index += BufferSize;
+                index += _configuration.BufferSize;
             }
-
         }
     }
 }

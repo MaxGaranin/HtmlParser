@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using HtmlParser.ConsoleApp.ManualParsing;
+using HtmlParser.ConsoleApp.Strategies;
 using NUnit.Framework;
 
 namespace HtmlParser.Parser.Tests
@@ -11,20 +13,18 @@ namespace HtmlParser.Parser.Tests
         [Test]
         public void Test()
         {
-            // var text = File.ReadAllText(@"d:\Temp\html-test1.txt");
-            var text = File.ReadAllText(@"d:\Temp\Создаем программное обеспечение для бизнеса - SimbirSoft.html");
+            // var fileContent = File.ReadAllText(@"d:\Temp\html-test1.txt");
+            var fileContent = File.ReadAllText(@"d:\Temp\Создаем программное обеспечение для бизнеса - SimbirSoft.html");
 
-            var parser = new ManualHtmlParser();
-            parser.ParseBlock(text);
+            var configuration = ParseConfiguration.Default();
+            var parser = new ManualParser(configuration.ExcludeTags);
+            parser.ParseBlock(fileContent);
 
-            Assert.IsTrue(parser.ResultTags.Count > 0);
+            Assert.IsTrue(parser.ResultTexts.Any());
 
-            foreach (var tag in parser.ResultTags)
+            foreach (var text in parser.ResultTexts)
             {
-                foreach (var textContent in tag.TextContents)
-                {
-                    Debug.WriteLine(textContent);                    
-                }
+                Debug.WriteLine(text);
             }
         }
     }

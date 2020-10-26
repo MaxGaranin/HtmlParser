@@ -1,26 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HtmlParser.ConsoleApp.ManualParsing
 {
-    public class ManualHtmlParser
+    public class ManualParser
     {
+        private readonly string[] _excludeTags;
+        
         private string _inputString;
+        private Stack<HtmlTag> _tagsStack;
+        private List<HtmlTag> _resultTags;
         private HtmlTag _currentTag;
-        private string _currentText;
         private int _currentIndex;
+        private string _currentText;
         private string _reminder;
 
-        private readonly Stack<HtmlTag> _tagsStack;
-        private bool _isBodyFound;
-
-        public List<HtmlTag> ResultTags { get; }
-
-        public ManualHtmlParser()
+        public IEnumerable<string> ResultTexts
         {
-            ResultTags = new List<HtmlTag>();
+            get { return _resultTags.SelectMany(x => x.TextContents); }
+        }
+
+        public ManualParser(string[] excludeTags)
+        {
+            _excludeTags = excludeTags;
+            Reset();
+        }
+
+        public void Reset()
+        {
             _tagsStack = new Stack<HtmlTag>();
-            _isBodyFound = false;
+            _resultTags = new List<HtmlTag>();
+            _currentTag = null;
+            _currentIndex = 0;
+            _currentText = "";
             _reminder = "";
         }
 
@@ -28,8 +41,6 @@ namespace HtmlParser.ConsoleApp.ManualParsing
         {
             _inputString = inputString;
             _currentIndex = 0;
-
-            if (!CheckBodyFound()) return;
 
             while (_currentIndex < inputString.Length)
             {
@@ -41,7 +52,7 @@ namespace HtmlParser.ConsoleApp.ManualParsing
                 _currentIndex = index + 1;
                 ReadTagInfo();
 
-                if (_currentTag.TagType == TagType.Comment || 
+                if (_currentTag.TagType == TagType.Comment ||
                     _currentTag.TagType == TagType.Autoclosing)
                 {
                     if (_tagsStack.Count > 0) _currentTag = _tagsStack.Pop();
@@ -49,8 +60,11 @@ namespace HtmlParser.ConsoleApp.ManualParsing
                 }
                 else if (_currentTag.TagType == TagType.Closing)
                 {
-                    ResultTags.Add(_currentTag);
-                    if (_tagsStack.Count > 0) _currentTag = _tagsStack.Pop();
+                    if (!_excludeTags.Contains(_currentTag.TagName))
+                    {
+                        _resultTags.Add(_currentTag);
+                        if (_tagsStack.Count > 0) _currentTag = _tagsStack.Pop();
+                    }
                     continue;
                 }
                 else if (_currentTag.TagType == TagType.Opening)
@@ -87,7 +101,7 @@ namespace HtmlParser.ConsoleApp.ManualParsing
                 if (tagContent[0] == '/')
                 {
                     _currentTag.TagType = TagType.Closing;
-                } 
+                }
                 else if (tagContent[^1] == '/')
                 {
                     _currentTag = new HtmlTag {TagName = tokens[0]};
@@ -107,24 +121,6 @@ namespace HtmlParser.ConsoleApp.ManualParsing
             }
 
             _currentIndex = index + 1;
-        }
-
-        private bool CheckBodyFound()
-        {
-            if (_isBodyFound) return true;
-
-            FindBody();
-            return _isBodyFound;
-        }
-
-        private void FindBody()
-        {
-            var index = _inputString.IndexOf("<body", StringComparison.OrdinalIgnoreCase);
-            if (index >= 0)
-            {
-                _isBodyFound = true;
-                _currentIndex = index;
-            }
         }
     }
 }

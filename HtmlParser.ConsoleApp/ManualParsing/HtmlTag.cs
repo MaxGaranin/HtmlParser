@@ -18,7 +18,8 @@ namespace HtmlParser.ConsoleApp.ManualParsing
     {
         Opening,
         Closing,
+        CompleteOpenClose,
         Autoclosing,
-        Comment
+        Comment,
     }
 }

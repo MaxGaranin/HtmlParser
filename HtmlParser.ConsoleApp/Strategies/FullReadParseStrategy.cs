@@ -3,88 +3,73 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using AngleSharp;
-using AngleSharp.Dom;
-using AngleSharp.Html.Dom;
+using AngleSharp.Text;
+using HtmlParser.ConsoleApp.AngleSharpParsing;
 
 namespace HtmlParser.ConsoleApp.Strategies
 {
-    public class FullReadParseStrategy : IParseStrategy
+    public class FullReadParseStrategy : ParseStrategyBase
     {
-        public readonly string[] ExcludeTags = {"head", "script", "style"};
+        private readonly ParseConfiguration _configuration;
 
-        public readonly char[] Separators =
-            {' ', ',', '.', '!', '?', '"', ';', ':', '[', ']', '(', ')', '\n', '\r', '\t'};
-
-        private Dictionary<string, int> _wordsDict = new Dictionary<string, int>();
-
-        public async Task Parse(string fileName)
+        public FullReadParseStrategy()
         {
-            var document = await ReadDocument(fileName);
-
-            _wordsDict = new Dictionary<string, int>();
-            ParseElement(document.Body);
-
-            PrintReport();
+            _configuration = ParseConfiguration.Default();
         }
 
-        private static async Task<IDocument> ReadDocument(string fileName)
+        public FullReadParseStrategy(ParseConfiguration configuration)
         {
-            await using var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-
-            var config = Configuration.Default;
-            var context = BrowsingContext.New(config);
-            var document = await context.OpenAsync(req => req.Content(fs));
-
-            return document;
+            _configuration = configuration;
         }
 
-        private void ParseElement(IHtmlElement element)
+        public override async Task Parse(StreamReader streamReader)
         {
-            if (!ExcludeTags.Contains(element.TagName.ToLower()))
+            var parser = new AngleSharpParser(_configuration);
+            var fileContent = await streamReader.ReadToEndAsync();
+            var texts = await parser.Parse(fileContent);
+
+            var wordsDict = ExtractUniqueWords(texts);
+            PrintReport(wordsDict);
+        }
+
+        private Dictionary<string, int> ExtractUniqueWords(IEnumerable<string> texts)
+        {
+            var wordsDict = new Dictionary<string, int>();
+
+            foreach (var text in texts)
             {
-                var textNodes = element.ChildNodes.Where(x => x.NodeType == NodeType.Text);
-                foreach (var textNode in textNodes)
-                {
-                    var textContent = textNode.TextContent;
+                var tokens = text.Split(_configuration.Separators, StringSplitOptions.RemoveEmptyEntries);
 
-                    if (!string.IsNullOrEmpty(textContent))
+                foreach (var token in tokens)
+                {
+                    var upperToken = token.ToUpper();
+                    if (!wordsDict.TryGetValue(upperToken, out var count))
                     {
-                        var tokens = textContent.Split(Separators, StringSplitOptions.RemoveEmptyEntries);
-
-                        foreach (var token in tokens)
-                        {
-                            var upperToken = token.ToUpper();
-                            if (!_wordsDict.TryGetValue(upperToken, out int count))
-                            {
-                                count = 0;
-                            }
-
-                            _wordsDict[upperToken] = ++count;
-                        }
+                        count = 0;
                     }
-                }
 
-                foreach (var childElement in element.Children.OfType<IHtmlElement>())
-                {
-                    ParseElement(childElement);
+                    wordsDict[upperToken] = ++count;
                 }
             }
+
+            return wordsDict;
         }
 
-        private void PrintReport()
+        private void PrintReport(IDictionary<string, int> wordsDict)
         {
-            Console.WriteLine($"Всего уникальных слов: {_wordsDict.Count}");
-            Console.WriteLine();
+            var textWriter = _configuration.TextWriter;
 
-            Console.WriteLine("Список по частоте упоминания:");
-            var wordKeyValues = _wordsDict.Select(kv => kv).OrderByDescending(kv => kv.Value);
+            textWriter.WriteLine($"Всего уникальных слов: {wordsDict.Count}");
+            textWriter.WriteLine();
+            textWriter.WriteLine("Список по частоте упоминания:");
+
+            var wordKeyValues = wordsDict.Select(kv => kv).OrderByDescending(kv => kv.Value);
             foreach (var keyValue in wordKeyValues)
             {
-                Console.WriteLine($"{keyValue.Key}: {keyValue.Value}");
+                textWriter.WriteLine($"{keyValue.Key}: {keyValue.Value}");
             }
 
-            Console.WriteLine();
+            textWriter.WriteLine();
         }
     }
 }
