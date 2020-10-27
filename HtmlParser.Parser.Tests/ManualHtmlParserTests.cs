@@ -39,7 +39,7 @@ namespace HtmlParser.Parser.Tests
             //     File.ReadAllText(@"d:\Temp\Создаем программное обеспечение для бизнеса - SimbirSoft.html");
 
             var configuration = ParseConfiguration.Default();
-            configuration.TextWriter = new StreamWriter(@"d:\Temp\out.txt");
+            // configuration.TextWriter = new StreamWriter(@"d:\Temp\out.txt");
 
             var strategy = new PartialReadParseStrategy(configuration);
             Task.WaitAll(strategy.Parse(fileContent));
