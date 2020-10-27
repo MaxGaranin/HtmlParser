@@ -4,18 +4,21 @@ using System.Threading.Tasks;
 using AngleSharp;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
-using HtmlParser.ConsoleApp.Strategies;
 
 namespace HtmlParser.ConsoleApp.AngleSharpParsing
 {
     public class AngleSharpParser
     {
-        private readonly ParseConfiguration _configuration;
+        private readonly string[] _excludeTags;
         private HashSet<string> _texts;
 
-        public AngleSharpParser(ParseConfiguration configuration)
+        public AngleSharpParser() : this(new string[0])
         {
-            _configuration = configuration;
+        }
+
+        public AngleSharpParser(string[] excludeTags)
+        {
+            _excludeTags = excludeTags;
         }
 
         public async Task<IEnumerable<string>> Parse(string text)
@@ -27,10 +30,9 @@ namespace HtmlParser.ConsoleApp.AngleSharpParsing
             ParseElement(document.Body);
 
             return _texts;
-
         }
 
-        private static IBrowsingContext GetContext() 
+        private static IBrowsingContext GetContext()
         {
             var config = Configuration.Default;
             var context = BrowsingContext.New(config);
@@ -39,7 +41,7 @@ namespace HtmlParser.ConsoleApp.AngleSharpParsing
 
         private void ParseElement(IHtmlElement element)
         {
-            if (Enumerable.Contains(_configuration.ExcludeTags, element.TagName.ToLower())) return;
+            if (_excludeTags.Contains(element.TagName.ToLower())) return;
 
             var textNodes = element.ChildNodes.Where(x => x.NodeType == NodeType.Text);
 

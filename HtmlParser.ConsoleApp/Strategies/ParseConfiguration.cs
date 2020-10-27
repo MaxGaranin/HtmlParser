@@ -23,7 +23,7 @@ namespace HtmlParser.ConsoleApp.Strategies
                 {
                     ' ', ',', '.', '!', '?', '"', ';', ':', '[', ']', '(', ')', '\n', '\r', '\t'
                 },
-                BufferSize = 1024 * 1024,
+                BufferSize = 1024,
                 TextWriter = Console.Out
             };
 

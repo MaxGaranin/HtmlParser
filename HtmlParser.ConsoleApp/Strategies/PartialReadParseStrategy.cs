@@ -6,33 +6,39 @@ namespace HtmlParser.ConsoleApp.Strategies
 {
     public class PartialReadParseStrategy : ParseStrategyBase
     {
-        private readonly ParseConfiguration _configuration;
-        
         public PartialReadParseStrategy()
         {
-            _configuration = ParseConfiguration.Default();
         }
 
-        public PartialReadParseStrategy(ParseConfiguration configuration)
+        public PartialReadParseStrategy(ParseConfiguration configuration) : base(configuration)
         {
-            _configuration = configuration;
         }
 
         public override async Task Parse(StreamReader streamReader)
         {
-            var parser = new ManualParser(_configuration.ExcludeTags);
+            var parser = new ManualParser(Configuration.ExcludeTags);
+            
+            await ParseByBlocks(streamReader, parser);
+            var texts = parser.ResultTexts;
 
-            char[] buffer = { };
-            var index = 0;
+            var wordsDict = ExtractUniqueWords(texts);
+            PrintReport(wordsDict);
+        }
+
+        private async Task ParseByBlocks(StreamReader streamReader, ManualParser parser)
+        {
+            var buffer = new char[Configuration.BufferSize];
 
             while (!streamReader.EndOfStream)
             {
-                await streamReader.ReadBlockAsync(buffer, index, _configuration.BufferSize);
+                var count = await streamReader.ReadBlockAsync(buffer, 0, Configuration.BufferSize);
+                if (count < Configuration.BufferSize)
+                {
 
-                var textBlock = buffer.ToString();
+                }
+
+                var textBlock = new string(buffer);
                 parser.ParseBlock(textBlock);
-
-                index += _configuration.BufferSize;
             }
         }
     }

@@ -7,11 +7,12 @@ namespace HtmlParser.ConsoleApp.ManualParsing
     public class ManualParser
     {
         private readonly string[] _excludeTags;
-        
+
         private string _inputString;
         private Stack<HtmlTag> _tagsStack;
         private List<HtmlTag> _resultTags;
         private HtmlTag _currentTag;
+        private HtmlTag _dummyTag;
         private int _currentIndex;
         private string _currentText;
         private string _reminder;
@@ -19,6 +20,10 @@ namespace HtmlParser.ConsoleApp.ManualParsing
         public IEnumerable<string> ResultTexts
         {
             get { return _resultTags.SelectMany(x => x.TextContents); }
+        }
+
+        public ManualParser() : this(new string[0])
+        {
         }
 
         public ManualParser(string[] excludeTags)
@@ -35,6 +40,8 @@ namespace HtmlParser.ConsoleApp.ManualParsing
             _currentIndex = 0;
             _currentText = "";
             _reminder = "";
+
+            _dummyTag = new HtmlTag {TagName = "Dummy", TagType = TagType.Opening};
         }
 
         public void ParseBlock(string inputString)
@@ -65,6 +72,7 @@ namespace HtmlParser.ConsoleApp.ManualParsing
                         _resultTags.Add(_currentTag);
                         if (_tagsStack.Count > 0) _currentTag = _tagsStack.Pop();
                     }
+
                     continue;
                 }
                 else if (_currentTag.TagType == TagType.Opening)
@@ -92,8 +100,13 @@ namespace HtmlParser.ConsoleApp.ManualParsing
                 return;
             }
 
-            var tagContent = _inputString.Substring(_currentIndex, index - _currentIndex);
-            if (!tagContent.StartsWith("!--"))
+            var tagContent = _inputString[_currentIndex..index];
+
+            if (tagContent.StartsWith("!--"))
+            {
+                _currentTag = new HtmlTag {TagType = TagType.Comment};
+            }
+            else
             {
                 var tokens = tagContent.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 if (tokens.Length == 0) return;
@@ -114,10 +127,6 @@ namespace HtmlParser.ConsoleApp.ManualParsing
                     _currentTag = new HtmlTag {TagName = tokens[0]};
                     _currentTag.TagType = TagType.Opening;
                 }
-            }
-            else
-            {
-                _currentTag = new HtmlTag {TagType = TagType.Comment};
             }
 
             _currentIndex = index + 1;

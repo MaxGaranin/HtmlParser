@@ -17,14 +17,14 @@ namespace HtmlParser.ConsoleApp
             var freeMemory = GC.GetTotalMemory(true);
 
             IParseStrategy parseStrategy;
-            if (freeMemory > fileLength)
-            {
-                parseStrategy = new FullReadParseStrategy();
-            }
-            else
-            {
+            // if (freeMemory > fileLength)
+            // {
+            //     parseStrategy = new FullReadParseStrategy();
+            // }
+            // else
+            // {
                 parseStrategy = new PartialReadParseStrategy();
-            }
+            // }
 
             await using var fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             using var streamReader = new StreamReader(fileStream);
