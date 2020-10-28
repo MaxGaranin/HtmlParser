@@ -17,7 +17,7 @@ namespace HtmlParser.ConsoleApp.Strategies
             {
                 ExcludeTags = new[]
                 {
-                    "head", "script", "style"
+                    "head", "style", "script"
                 },
                 Separators = new[]
                 {

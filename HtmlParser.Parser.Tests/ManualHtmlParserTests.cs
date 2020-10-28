@@ -34,10 +34,14 @@ namespace HtmlParser.Parser.Tests
         [Test]
         public void Test2()
         {
-            var fileContent = File.ReadAllText(@"d:\Temp\html-test1.txt");
+            // var fileContent = File.ReadAllText(@"d:\Temp\html-test1.txt");
             // var fileContent =
             //     File.ReadAllText(@"d:\Temp\Создаем программное обеспечение для бизнеса - SimbirSoft.html");
-
+            var fileContent =
+                File.ReadAllText(@"d:\Temp\Метаданные HTML-документа.html");
+            // var fileContent =
+            //     File.ReadAllText(@"d:\Temp\Метаданные HTML-документа.html");
+            
             var configuration = ParseConfiguration.Default();
             // configuration.TextWriter = new StreamWriter(@"d:\Temp\out.txt");
 

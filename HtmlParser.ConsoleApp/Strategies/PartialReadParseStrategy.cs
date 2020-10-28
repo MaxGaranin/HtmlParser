@@ -32,12 +32,11 @@ namespace HtmlParser.ConsoleApp.Strategies
             while (!streamReader.EndOfStream)
             {
                 var count = await streamReader.ReadBlockAsync(buffer, 0, Configuration.BufferSize);
-                if (count < Configuration.BufferSize)
-                {
 
-                }
-
-                var textBlock = new string(buffer);
+                var textBlock = count == Configuration.BufferSize 
+                    ? new string(buffer) 
+                    : new string(buffer[..count]);
+                
                 parser.ParseBlock(textBlock);
             }
         }
