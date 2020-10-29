@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using HtmlParser.Parser;
 
 namespace HtmlParser.ConsoleApp
 {
@@ -10,7 +9,7 @@ namespace HtmlParser.ConsoleApp
             const string url = "https://www.simbirsoft.com/";
 
             var processor = new WebPageProcessor();
-            await processor.Run(url);
+            await processor.RunAsync(url);
         }
     }
 }

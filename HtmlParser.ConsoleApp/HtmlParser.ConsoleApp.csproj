@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HtmlParser.Parser\HtmlParser.Parser.csproj" />
+    <ProjectReference Include="..\HtmlParser.Utils\HtmlParser.Utils.csproj" />
   </ItemGroup>
 
 </Project>

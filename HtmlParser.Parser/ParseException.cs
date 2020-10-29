@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace HtmlParser.Parser.Strategies
+namespace HtmlParser.Parser
 {
     /// <summary>
-    /// Исключение для процесса парсинга HTML-разметки
+    /// Общее исключение для процесса парсинга разметки
     /// </summary>
     public class ParseException : Exception
     {

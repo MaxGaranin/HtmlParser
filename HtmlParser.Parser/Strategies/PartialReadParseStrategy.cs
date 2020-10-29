@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using HtmlParser.Parser.ManualParsing;
+using HtmlParser.Parser.Parsers.Manual;
 
 namespace HtmlParser.Parser.Strategies
 {

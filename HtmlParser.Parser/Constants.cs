@@ -1,5 +1,8 @@
 ﻿namespace HtmlParser.Parser
 {
+    /// <summary>
+    /// Общие константы
+    /// </summary>
     public class Constants
     {
         public const string OpeningTag = "<";

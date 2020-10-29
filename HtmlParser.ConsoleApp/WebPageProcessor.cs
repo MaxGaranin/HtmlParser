@@ -3,11 +3,18 @@ using System.IO;
 using System.Threading.Tasks;
 using HtmlParser.Parser.Strategies;
 
-namespace HtmlParser.Parser
+namespace HtmlParser.ConsoleApp
 {
+    /// <summary>
+    /// Основной класс, запускающий в работу скачивание страницы и ее обработку
+    /// </summary>
     public class WebPageProcessor
     {
-        public async Task Run(string url)
+        /// <summary>
+        /// Запуск основного процесса скачивания и обработки
+        /// </summary>
+        /// <param name="url">Адрес страницы для обработки</param>
+        public async Task RunAsync(string url)
         {
             var fileName = $"{Guid.NewGuid()}.html";
 
@@ -17,14 +24,14 @@ namespace HtmlParser.Parser
             var freeMemory = GC.GetTotalMemory(true);
 
             IParseStrategy parseStrategy;
-            // if (freeMemory > fileLength)
-            // {
-            //     parseStrategy = new FullReadParseStrategy();
-            // }
-            // else
-            // {
+            if (freeMemory > fileLength)
+            {
+                parseStrategy = new FullReadParseStrategy();
+            }
+            else
+            {
                 parseStrategy = new PartialReadParseStrategy();
-            // }
+            }
 
             await using var fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             using var streamReader = new StreamReader(fileStream);

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HtmlParser.Parser.ManualParsing
+namespace HtmlParser.Parser.Parsers.Manual
 {
     public class Tag
     {

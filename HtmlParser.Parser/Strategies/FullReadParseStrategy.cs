@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using HtmlParser.Parser.AngleSharpParsing;
+using HtmlParser.Parser.Parsers.AngleSharp;
 
 namespace HtmlParser.Parser.Strategies
 {

@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Net;
 
-namespace HtmlParser.Parser
+namespace HtmlParser.Utils.Web
 {
     public class WebPageDownloader
     {

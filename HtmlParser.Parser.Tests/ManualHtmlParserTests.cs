@@ -2,8 +2,8 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using HtmlParser.Parser.AngleSharpParsing;
-using HtmlParser.Parser.ManualParsing;
+using HtmlParser.Parser.Parsers.AngleSharp;
+using HtmlParser.Parser.Parsers.Manual;
 using HtmlParser.Parser.Strategies;
 using NUnit.Framework;
 

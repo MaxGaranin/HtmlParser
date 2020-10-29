@@ -70,6 +70,5 @@ namespace HtmlParser.Parser.Strategies
             textWriter.WriteLine();
             textWriter.Flush();
         }
-
     }
 }
