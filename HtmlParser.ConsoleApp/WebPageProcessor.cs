@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using HtmlParser.Parser.Strategies;
+using HtmlParser.Utils.Web;
 
 namespace HtmlParser.ConsoleApp
 {
