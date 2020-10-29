@@ -1,4 +1,4 @@
-﻿namespace HtmlParser.ConsoleApp
+﻿namespace HtmlParser.Parser
 {
     public class Constants
     {

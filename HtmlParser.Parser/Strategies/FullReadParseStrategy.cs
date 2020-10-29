@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using HtmlParser.ConsoleApp.AngleSharpParsing;
+using HtmlParser.Parser.AngleSharpParsing;
 
-namespace HtmlParser.ConsoleApp.Strategies
+namespace HtmlParser.Parser.Strategies
 {
     public class FullReadParseStrategy : ParseStrategyBase
     {

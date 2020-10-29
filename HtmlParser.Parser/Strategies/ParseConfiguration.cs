@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace HtmlParser.ConsoleApp.Strategies
+namespace HtmlParser.Parser.Strategies
 {
     /// <summary>
     /// Конфигурация парсеров

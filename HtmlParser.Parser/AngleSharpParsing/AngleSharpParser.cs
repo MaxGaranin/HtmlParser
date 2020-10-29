@@ -5,7 +5,7 @@ using AngleSharp;
 using AngleSharp.Dom;
 using AngleSharp.Html.Dom;
 
-namespace HtmlParser.ConsoleApp.AngleSharpParsing
+namespace HtmlParser.Parser.AngleSharpParsing
 {
     public class AngleSharpParser
     {

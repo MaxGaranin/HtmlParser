@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AngleSharp.Text;
 
-namespace HtmlParser.ConsoleApp.Strategies
+namespace HtmlParser.Parser.Strategies
 {
     public abstract class ParseStrategyBase : IParseStrategy
     {

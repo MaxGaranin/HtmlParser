@@ -1,4 +1,4 @@
-﻿namespace HtmlParser.ConsoleApp.ManualParsing
+﻿namespace HtmlParser.Parser.ManualParsing
 {
     public enum TagType
     {

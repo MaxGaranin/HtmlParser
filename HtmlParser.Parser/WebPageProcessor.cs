@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using HtmlParser.ConsoleApp.Strategies;
+using HtmlParser.Parser.Strategies;
 
-namespace HtmlParser.ConsoleApp
+namespace HtmlParser.Parser
 {
     public class WebPageProcessor
     {

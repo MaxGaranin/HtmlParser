@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 
-namespace HtmlParser.ConsoleApp.Strategies
+namespace HtmlParser.Parser.Strategies
 {
     public interface IParseStrategy
     {

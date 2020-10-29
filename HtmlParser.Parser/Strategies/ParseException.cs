@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HtmlParser.ConsoleApp.Strategies
+namespace HtmlParser.Parser.Strategies
 {
     /// <summary>
     /// Исключение для процесса парсинга HTML-разметки

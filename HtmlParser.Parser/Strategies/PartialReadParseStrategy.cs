@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using HtmlParser.ConsoleApp.ManualParsing;
+using HtmlParser.Parser.ManualParsing;
 
-namespace HtmlParser.ConsoleApp.Strategies
+namespace HtmlParser.Parser.Strategies
 {
     public class PartialReadParseStrategy : ParseStrategyBase
     {

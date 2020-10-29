@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HtmlParser.ConsoleApp.Strategies;
+using HtmlParser.Parser.Strategies;
 
-namespace HtmlParser.ConsoleApp.ManualParsing
+namespace HtmlParser.Parser.ManualParsing
 {
     public class ManualParser
     {

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using HtmlParser.Parser;
 
 namespace HtmlParser.ConsoleApp
 {

@@ -2,9 +2,9 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using HtmlParser.ConsoleApp.AngleSharpParsing;
-using HtmlParser.ConsoleApp.ManualParsing;
-using HtmlParser.ConsoleApp.Strategies;
+using HtmlParser.Parser.AngleSharpParsing;
+using HtmlParser.Parser.ManualParsing;
+using HtmlParser.Parser.Strategies;
 using NUnit.Framework;
 
 namespace HtmlParser.Parser.Tests
