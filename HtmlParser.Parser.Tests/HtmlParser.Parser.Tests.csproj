@@ -16,4 +16,19 @@
     <ProjectReference Include="..\HtmlParser.Parser\HtmlParser.Parser.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="SampleFiles\Глубокое погружение в систему рендеринга WPF _ Хабр.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="SampleFiles\Метаданные HTML-документа.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="SampleFiles\Пустой файл.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="SampleFiles\Создаем программное обеспечение для бизнеса - SimbirSoft.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

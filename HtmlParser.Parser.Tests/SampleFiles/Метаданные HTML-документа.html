@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+</head>
+<body class="page-template-default page page-id-13574 page-child parent-pageid-1380">
+    <header>  
+        <div class="container">
+            <a class="header-logo" href="https://html5book.ru/">HTML5<span>BOOK</span></a>
+            <div class="menu-wrapper">
+                <div class="menu-header-container"><ul id="menu-header" class="menu"><li id="menu-item-3827" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-3827"><a href="https://html5book.ru/html-html5/">HTML</a></li>
+<li id="menu-item-3871" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3871"><a href="https://html5book.ru/css-css3/">CSS</a></li>
+<li id="menu-item-3975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3975"><a href="https://html5book.ru/javascript-jquery/">JS</a></li>
+<li id="menu-item-3884" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3884"><a href="https://html5book.ru/web-topography/">Типографика</a></li>
+<li id="menu-item-5292" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5292"><a href="https://html5book.ru/category/uroki/">Уроки</a></li>
+<li id="menu-item-10067" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10067"><a href="https://html5book.ru/category/vyorstka/">Вёрстка</a></li>
+<li id="menu-item-11005" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11005"><a href="https://html5book.ru/css-spravochnik.html">CSS-справочник</a></li>
+</ul></div>                <div class="search-box">
+					<form role="search" method="get" class="search-form" action="https://html5book.ru/">
+				<label>
+					<span class="screen-reader-text">Найти:</span>
+					<input type="search" class="search-field" placeholder="Поиск&hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="Поиск" />
+			</form>					<i class="fa fa-search" aria-hidden="true"></i>
+				</div>
+            </div>
+        </div>
+    </header>
+    <main><div class="container">
+            <ul class="breadcrumbs"><li class="item"><a href="https://html5book.ru" title="Главная">Главная</a></li><li class="separator"> &raquo; </li><li class="item"><a href="https://html5book.ru/html-html5/" title="HTML и HTML5">HTML и HTML5</a></li><li class="separator"> &raquo; </li><li class="item"><a href="https://html5book.ru/html5-semantic-elements/" title="1.11. Семантические элементы HTML5">1.11. Семантические элементы HTML5</a></li><li class="separator"> &raquo; </li><li class="item-current"><b title="1.11.2. Метаданные документа"> 1.11.2. Метаданные документа</b></li></ul>        <div class="content-wrapper">
+            <div class="content">
+                <h1>1.11.2. Метаданные документа</h1>
+                <div class="post-meta">
+                    <span class="post-date">Опубликовано: 20 февраля 2020</span>
+                    <span>Обновлено: 17 марта 2020</span>                     <a href="https://html5book.ru/metadannye-dokumenta/#respond" class="comments-count" ><span class="dsq-postid" data-dsqidentifier="13574 https://html5book.ru/?page_id=13574">0 комментариев</span></a>                </div>
+
+                <div class="content-inner">
+                    <img width="250" height="250" src="https://html5book.ru/wp-content/uploads/2020/02/html-semantic.jpg" class="attachment-page-image size-page-image wp-post-image" alt="" loading="lazy" />                    <p>К метаданным относится содержимое, которое устанавливает представление или поведение остального содержимого, отношения документа с другими документами, или передает другую «внешнюю» информацию.</p>
+<h2>HTML-элементы, семантика которых связана с метаданными</h2>
+<ul class="contents">
+<li style="color:white; background:#ffd300;">Содержание:</li>
+<li><a href="#head">1. Элемент &lt;head&gt;</a></li>
+<li><a href="#title">2. Элемент &lt;title&gt;</a></li>
+<li><a href="#base">3. Элемент &lt;base&gt;</a></li>
+<li><a href="#link">4. Элемент &lt;link&gt;</a></li>
+<li><a href="#meta">5. Элемент &lt;meta&gt;</a></li>
+<li><a href="#style">6. Элемент &lt;style&gt;</a></li>
+</ul>
+<h3 id="head">1. Элемент &lt;head&gt;</h3>
+<p><b>Категории содержимого:</b> нет.</p>
+<p><b>Контекст, в котором этот элемент может быть использован:</b> как первый элемент в элементе <kbd>&lt;html&gt;</kbd>.</p>
+<p><b>Пропуск тегов:</b> начальный тег <kbd>&lt;head&gt;</kbd> может быть пропущен, если элемент <kbd>&lt;head&gt;</kbd> пуст, или если сразу после него идет другой HTML-элемент. Закрывающий тег <kbd>&lt;/head&gt;</kbd> может быть пропущен, если он не следует сразу за пробелом или за комментарием.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+  &lt;title&gt;Тест&lt;/title&gt;
+   &lt;body&gt;
+    &lt;h1&gt;Тестовая страница&lt;/h1&gt;
+   &lt;/body&gt;</code></pre>
+<p>Для элемента доступны <a href="https://html5book.ru/html-attributes/" target="_blank" rel="noopener noreferrer">‎глобальные атрибуты</a>.</p>
+<p>Раздел <kbd>&lt;head&gt;...&lt;/head&gt;</kbd> содержит набор технической информации (метаданных) о текущей веб-странице: заголовок, описание, ключевые слова для поисковых машин, кодировку и т.д. Введенная в нем информация не отображается в окне браузера, однако содержит данные, которые указывают браузеру, как следует обрабатывать страницу.</p>
+<p>Набор метаданных может быть как большим, так и маленьким:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+  &lt;head&gt;
+    &lt;title&gt;Документ с небольшим head&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  ...</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Документ с большим head&lt;/title&gt;
+    &lt;link rel="stylesheet" href="default.css"&gt;
+    &lt;link rel="stylesheet alternate" href="big.css" title="Большой текст"&gt;
+    &lt;script src="main.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  ...</code></pre>
+<h3 id="title">2. Элемент &lt;title&gt;</h3>
+<p><b>Категории содержимого:</b> метаданные.</p>
+<p><b>Контекст, в котором этот элемент может быть использован:</b> в элементе <kbd>&lt;head&gt;</kbd>, не содержащем других элементов <kbd>&lt;title&gt;</kbd>.</p>
+<p><b>Пропуск тегов:</b> ни один из тегов не может быть пропущен.</p>
+<p>Для элемента доступны <a href="https://html5book.ru/html-attributes/" target="_blank" rel="noopener noreferrer">‎глобальные атрибуты</a>.</p>
+<p>Элемент <kbd>&lt;title&gt;</kbd> представляет заголовок или название документа (веб-страницы). Авторы должны использовать заголовки, которые дают поисковой системе понять, что содержится на странице, даже если заголовки используются вне контекста, например, в истории, закладках пользователя или в результатах поиска. Заголовок документа может отличаться от заголовка первого уровня, поскольку <kbd>&lt;h1&gt;</kbd> не должен стоять отдельно, когда он вырван из контекста. </p>
+<pre><code class="language-html">&lt;title&gt;Подробное руководство по Flexbox&lt;/title&gt;
+...
+&lt;h1&gt;Что такое Flexbox&lt;/h1&gt;
+&lt;p&gt;...&lt;/p&gt;</code></pre>
+<p>Текст внутри <kbd>&lt;title&gt;</kbd> отображается браузером в заголовке окна. Также этот текст будет содержать ссылку на ваш сайт на странице результатов поиска. Длина заголовка должна быть не более 60 символов, чтобы поместиться полностью.  </p>
+<p>В одном документе должно быть не более одного элемента <kbd>&lt;title&gt;</kbd>. Элемент <kbd>&lt;title&gt;</kbd> является обязательным в большинстве ситуаций, но если протокол более высокого уровня предоставляет информацию о заголовке, например, в строке «Тема» электронного письма, когда HTML используется в качестве формата создания электронного письма, элемент <kbd>&lt;title&gt;</kbd> может быть опущен.</p>
+<h3 id="base">3. Элемент &lt;base&gt;</h3>
+<p><b>Категории содержимого:</b> метаданные.</p>
+<p><b>Контекст, в котором этот элемент может быть использован:</b> в элементе <kbd>&lt;head&gt;</kbd>, не содержащем других элементов <kbd>&lt;base&gt;</kbd>.</p>
+<p><b>Пропуск тегов:</b> отсутствует закрывающий тег.</p>
+<p>Для элемента доступны <a href="https://html5book.ru/html-attributes/" target="_blank" rel="noopener noreferrer">‎глобальные атрибуты</a>.</p>
+<p>Элемент <kbd>&lt;base&gt;</kbd> с помощью атрибута <kbd>href</kbd> предоставляет базовый URL документа для парсинга всех относительных URL-адресов на странице, установленных атрибутами <kbd>src</kbd> и <kbd>href</kbd>. </p>
+<p>Атрибут <kbd>target</kbd> задает тип окна просмотра по умолчанию при переходе по всем гиперссылкам. </p>
+<p>В одном документе может быть только один элемент <kbd>&lt;base&gt;</kbd> и он должен иметь атрибут <kbd>href</kbd>, <kbd>target</kbd> или оба сразу.</p>
+<p>Элемент <kbd>&lt;base&gt;</kbd> должен находиться перед любыми другими элементами в дереве, которые имеют атрибуты, определенные как принимающие URL, кроме элемента <kbd>&lt;html&gt;</kbd> (его атрибут <kbd>manifest</kbd> не подвержен влиянию элемента <kbd>&lt;base&gt;</kbd>).</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+  &lt;head&gt;
+    &lt;title&gt;Пример для элемента base&lt;/title&gt;
+    &lt;base href="https://www.example.com/news/index.html"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Посетите страницу &lt;a href="archives.html"&gt;архивов&lt;/a&gt;.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Ссылка в приведенном выше примере будет ссылкой на <kbd>https://www.example.com/news/archives.html</kbd>. </p>
+<h3 id="link">4. Элемент &lt;link&gt;</h3>
+<p><b>Категории содержимого:</b> метаданные. Если его использование разрешено в <kbd>&lt;body&gt;</kbd> &#8212; потоковое или текстовое содержимое. </p>
+<p><b>Контекст, в котором этот элемент может быть использован:</b> где ожидаются метаданные. В элементе <kbd>&lt;noscript&gt;</kbd>, который является дочерним элементом элемента <kbd>&lt;head&gt;</kbd>. Если элемент разрешен в <kbd>&lt;body&gt;</kbd> &#8212; там, где ожидается текстовое содержимое.</p>
+<p><b>Пропуск тегов:</b> отсутствует закрывающий тег.</p>
+<p>Для элемента доступны <a href="https://html5book.ru/html-attributes/" target="_blank" rel="noopener noreferrer">‎глобальные атрибуты</a>, а также атрибуты, приведенные в таблице: </p>
+<table class="t3">
+<caption>Таблица 1. Атрибуты элемента &lt;link&gt;</caption>
+<tr>
+<th style="width: 20%;">Атрибут</th>
+<th>Описание, принимаемое значение</th>
+</tr>
+<tr>
+<td><kbd>href</kbd></td>
+<td>Задает адрес гиперссылки.</td>
+</tr>
+<tr>
+<td><kbd>crossorigin</kbd></td>
+<td>Описывает, как элемент обрабатывает CORS-запросы, предназначен для использования со ссылками на внешние ресурсы.</td>
+</tr>
+<tr>
+<td><kbd>rel</kbd></td>
+<td>Задает тип указанной ссылки, может содержать как одно значение, так и набор разделенных пробелами ключевых слов:<br />
+<kbd>alternate</kbd>, <kbd>dns-prefetch</kbd>, <kbd>icon</kbd>, <kbd>next</kbd>, <kbd>pingback</kbd>, <kbd>preconnect</kbd>, <kbd>prefetch</kbd>, <kbd>preload</kbd>, <kbd>prerender</kbd>, <kbd>search</kbd>, <kbd>serviceworker</kbd>.</td>
+</tr>
+<tr>
+<td><kbd>rev</kbd></td>
+<td>Описывает обратное отношение текущего документа к связываемому документу, как определено атрибутом <kbd>href</kbd>.</td>
+</tr>
+<tr>
+<td><kbd>media</kbd></td>
+<td>Указывает, к какому типу медиа относится ресурс. Значение должно быть допустимым списком медиазапросов.</td>
+</tr>
+<tr>
+<td><kbd>nonce</kbd></td>
+<td>Используется в проверках политики безопасности контента, представляет криптографический одноразовый номер, который может использоваться политикой безопасности содержимого, чтобы определить, будет ли внешний ресурс, указанный в ссылке, загружаться и применяться к документу.</td>
+</tr>
+<tr>
+<td><kbd>hreflang</kbd></td>
+<td>Задает язык связанного ресурса.</td>
+</tr>
+<tr>
+<td><kbd>type</kbd></td>
+<td>Устанавливает подсказку для типа ссылочного ресурса.</td>
+</tr>
+<tr>
+<td><kbd>referrerpolicy</kbd></td>
+<td>Указывает URL источника запроса при переходе с одной страницы на другую.</td>
+</tr>
+<tr>
+<td><kbd>sizes</kbd></td>
+<td>Задает размеры иконок (для <kbd>rel="icon"</kbd>) для визуальных медиа, значение носит рекомендательный характер.</td>
+</tr>
+<tr>
+<td><kbd>title</kbd></td>
+<td>Устанавливает заголовок ссылки, альтернативное имя таблицы стилей.</td>
+</tr>
+</table>
+<p>Атрибут <kbd>href</kbd> элемента <kbd>&lt;link&gt;</kbd> позволяет связывать HTML-документ с различным видами ресурсов, например, таблицами стилей, скриптами, альтернативными формами документа и ссылками навигации (оглавление, предыдущие и последующие страницы, уведомления об авторских правах и т.п.). </p>
+<p>Тип связанного ресурса задается значением обязательного атрибута <kbd>rel</kbd>. </p>
+<p>С помощью элемента <kbd>&lt;link&gt;</kbd> можно создать две категории ссылок: ссылки на внешние ресурсы и гиперссылки. Например, следующий элемент ссылки создает две гиперссылки (на одну и ту же страницу):</p>
+<pre><code class="language-html">&lt;link rel="author license" href="/about"&gt;</code></pre>
+<p>Семантика первой состоит в том, что целевая страница содержит информацию об авторе текущей страницы, семантика второй заключается в том, что целевая страница содержит информацию о лицензии, под которой предоставляется текущая страница.</p>
+<p>Гиперссылки, созданные с помощью элемента <kbd>&lt;link&gt;</kbd> и его атрибута <kbd>rel</kbd>, применяются ко всему документу. Это отличается от атрибута <kbd>rel</kbd> элементов <kbd>&lt;a&gt;</kbd> и <kbd>&lt;area&gt;</kbd>, который указывает тип ссылки, контекст которой определяется местоположением ссылки в документе.</p>
+<p>Если значения атрибута <kbd>rel</kbd> содержат только ключевые слова, разрешенные в <kbd>&lt;body&gt;</kbd>, элемент <kbd>&lt;link&gt;</kbd> можно использовать там, где ожидается фразовое содержание, то есть внутри <kbd>&lt;body&gt;</kbd>.</p>
+<h3 id="meta">5. Элемент &lt;meta&gt;</h3>
+<p><b>Категории содержимого:</b> метаданные.</p>
+<p><b>Контекст, в котором этот элемент может быть использован:</b> если для элемента указаны атрибуты <kbd>charset</kbd> и <kbd>http-equiv</kbd>, то в элементе <kbd>&lt;head&gt;</kbd>. Если значением атрибута не является <kbd>content-type</kbd>, то внутри элемента <kbd>&lt;noscript&gt;</kbd>, являющимся дочерним элементом <kbd>&lt;head&gt;</kbd>. Если присутствует атрибут <kbd>name</kbd> &#8212; там, где ожидаются метаданные.</p>
+<p><b>Пропуск тегов:</b> отсутствует закрывающий тег.</p>
+<p>Для элемента доступны <a href="https://html5book.ru/html-attributes/" target="_blank" rel="noopener noreferrer">‎глобальные атрибуты</a>, а также атрибуты, приведенные в таблице: </p>
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div class="e64ad5ead3b1736eb206cd33a35b030d" data-index="1" style="float: none; margin:0px;">
+<div style="margin: 0 0 20px 0;clear:both;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- new -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4906567094890032"
+     data-ad-slot="3058577107"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+
+<table class="t3">
+<caption>Таблица 2. Атрибуты элемента &lt;meta&gt;</caption>
+<tr>
+<th style="width: 20%;">Атрибут</th>
+<th>Описание, принимаемое значение</th>
+</tr>
+<tr>
+<td><kbd>charset</kbd></td>
+<td>Определяет кодировку символов, используемую в документе. В документе должен быть один элемент <kbd>&lt;meta&gt;</kbd> с атрибутом <kbd>charset</kbd>. Необходимо использовать <kbd>utf-8</kbd> или другую кодировку, совместимую с ASCII.</td>
+</tr>
+<tr>
+<td><kbd>content</kbd></td>
+<td>Задает значение метаданных документа или прагма директив.</td>
+</tr>
+<tr>
+<td><kbd>http-equiv</kbd></td>
+<td>Задает прагма директиву.</td>
+</tr>
+<tr>
+<td><kbd>name</kbd></td>
+<td>Устанавливает название/имя метаданных документа.</td>
+</tr>
+</table>
+<p>Элемент <kbd>&lt;meta&gt;</kbd> представляет различные виды метаданных, которые не могут быть выражены с использованием элементов <kbd>&lt;title&gt;</kbd>, <kbd>&lt;base&gt;</kbd>, <kbd>&lt;link&gt;</kbd>, <kbd>&lt;style&gt;</kbd> и <kbd>&lt;script&gt;</kbd>. </p>
+<p>Для элемента обязательно должен быть определен один из атрибутов &#8212; <kbd>name</kbd>, <kbd>http-equiv</kbd> или <kbd>charset</kbd>. Если указан атрибут <kbd>name</kbd> или <kbd>http-equiv</kbd>, также должен присутствовать атрибут <kbd>content</kbd> (или пропущен, если нет соответствующих значений). </p>
+<h4>Стандартные названия метаданных</h4>
+<p>Для атрибута <kbd>name</kbd> доступны следующие значения (чувствительны к регистру):</p>
+<ul class="list-circle">
+<li>
+<p><kbd><b>application-name</b></kbd> &#8212; значение должно быть короткой строкой произвольной формы, содержащей название веб-приложения, которое представляет страница. Если страница не является веб-приложением, <kbd>application-name</kbd> не должно использоваться. В одном документе должно быть не более одного названия веб-приложения.</p>
+<p>Браузеры могут использовать название веб-приложения в пользовательском интерфейсе вместо <kbd>&lt;title&gt;</kbd>, поскольку <kbd>&lt;title&gt;</kbd> может содержать сообщения о состоянии и тому подобное, относящиеся к состоянию страницы в определенный момент времени, а не просто как название приложения.</p>
+</li>
+<li><kbd><b>author</b></kbd> &#8212; значение должно быть строкой произвольной формы с указанием имени одного из авторов страницы.</li>
+<li><kbd><b>description</b></kbd> &#8212; значение должно быть строкой произвольной формы, описывающей страницу. Значение должно быть подходящим для использования в каталоге страниц, например, в поисковой системе.</li>
+<li>
+<p><kbd><b>generator</b></kbd> &#8212; значение должно быть строкой произвольной формы, которая идентифицирует один из пакетов программного обеспечения, использованных для создания документа. Это значение не должно использоваться на страницах, разметка которых не создается программным обеспечением, например на страницах, разметка которых была написана пользователем в текстовом редакторе.</p>
+<p><pre><code class="language-html">&lt;meta name="generator" content="WordPress 5.2"&gt;</code></pre>
+</p>
+</li>
+<li>
+<p><kbd><b>keywords</b></kbd> &#8212; значение должно быть набором разделенных запятыми ключевых слов, относящихся к странице. Многие поисковые системы не рассматривают такие ключевые слова, потому что эта функция исторически использовалась ненадежно и спамила результаты поиска.</p>
+<p><pre><code class="language-html">&lt;meta name="keywords" content="шрифт,шрифты,типографика"&gt;</code></pre>
+</p>
+</li>
+<li>
+<p><kbd><b>referrer</b></kbd> &#8212; необязательное поле заголовка HTTP, которое позволяет отслеживать перемещения пользователей между страницами в инструментах аналитики, а также понять происхождение входящего трафика. Реферер передаётся при переходе с http на любой тип сайта, при переходе с https на https, и не передаётся при переходе с https на http.</p>
+<p>В наиболее распространенной ситуации это означает, что когда пользователь щелкает гиперссылку в браузере, на сервер отправляется запрос, содержащий целевую веб-страницу. Запрос может содержать поле <kbd>referer</kbd>, в котором указана последняя страница, на которой был пользователь (то есть та, на которой он щелкнул ссылку).</p>
+<p>Значения атрибута <kbd>content</kbd>:</p>
+<ul class="list-round">
+<li><kbd>no-referrer</kbd> &#8212; не передает никакую информацию о реферере.</li>
+<li><kbd>no-referrer-when-downgrade</kbd> &#8212; передает реферальные данные только сайтам на HTTPS. Поведение браузера по-умолчанию, если не указано иное.</li>
+<li><kbd>unsafe-url</kbd> &#8212; всегда передает полный URL реферера.</li>
+<li><kbd>origin-when-cross-origin</kbd> &#8212; отправляет полный URL при переходе на страницы в рамках одного сайта, вне зависимости от протокола, а на все остальные &#8212; только базовый домен/поддомен.</li>
+</ul>
+<pre><code class="language-html">&lt;meta name="referrer" content="origin-when-cross-origin"&gt;</code></pre>
+</li>
+<li>
+<p><kbd><b>viewport</b></kbd> &#8212; позволяет определять конкретные характеристики области просмотра, например, ширину макета и коэффициент масштабирования веб-страниц. Можно запретить или ограничить пользователям возможность масштабирования, используя такие значения, как <kbd>content="user-scalable=no"</kbd> или <kbd>content="width=device-width, initial-scale=1.0, maximum-scale=1.0"</kbd>.</p>
+<p>Могут быть конкретные случаи использования, в которых целесообразно предотвращение масштабирования пользователями, например, приложения-карты &#8212; когда пользовательские функции масштабирования обрабатываются с помощью сценариев, но в целом такой практики следует избегать.</p>
+<p>Распознаваемые свойства атрибута <kbd>content</kbd>:</p>
+<ul class="list-round">
+<li>
+<p><kbd>width</kbd> &#8212; определяет ширину области просмотра, значением может быть определенное количество пикселей, например, <kbd>width=768</kbd> или ключевое слово <kbd>device-width</kbd> (соответствует 100vw).</p>
+<p><pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></pre>
+</p>
+</li>
+<li><kbd>height</kbd> &#8212; определяет высоту области просмотра, значением может быть определенное количество пикселей, например, <kbd>height=480</kbd> или ключевое слово <kbd>device-height</kbd>  (соответствует 100vh)</li>
+<li><kbd>initial-scale</kbd> &#8212; указывает браузеру соотношение пикселей CSS и устройства.</li>
+<li><kbd>minimum-scale</kbd> &#8212; определяет наименьший допустимый коэффициент масштабирования.</li>
+<li><kbd>maximum-scale</kbd> &#8212; определяет максимально допустимый коэффициент масштабирования.</li>
+<li><kbd>user-scalable</kbd> &#8212; указывает, может ли коэффициент масштабирования быть изменен в результате взаимодействия с пользователем или нет.</li>
+</ul>
+</li>
+</ul>
+<h4>Прагма директивы</h4>
+<p>Когда атрибут <kbd>http-equiv</kbd> указан в элементе <kbd>&lt;meta&gt;</kbd>, элемент <kbd>&lt;meta&gt;</kbd> является прагма директивой, которая предоставляет дополнительную информацию о документе:</p>
+<ul class="list-circle">
+<li>
+<p><kbd><b>content-type</b></kbd> &#8212; является альтернативной формой установки атрибута <kbd>charset</kbd>.</p>
+<pre><code class="language-html">&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;</code></pre>
+</li>
+<li>
+<p><kbd><b>default-style</b></kbd> &#8212; задает имя альтернативной таблицы стилей, используемой по умолчанию.</p>
+<pre><code class="language-html">&lt;meta http-equiv="default-style" content="default"&gt;</code></pre>
+</li>
+<li>
+<p><kbd><b>refresh</b></kbd> &#8212; устанавливает таймер для обновления и перенаправления. Например, главная страница новостного сайта может содержать следующую разметку в элементе <kbd>&lt;head&gt;</kbd>, чтобы обеспечить автоматическую перезагрузку страницы с сервера каждые пять минут:</p>
+<pre><code class="language-html">&lt;meta http-equiv="refresh" content="300"&gt;</code></pre>
+<p>Последовательность страниц может использоваться в качестве автоматического слайд-шоу, если каждая страница обновляется до следующей страницы в последовательности с использованием следующей разметки:</p>
+<pre><code class="language-html">&lt;meta http-equiv="refresh" content="20; url=page4.html"&gt;</code></pre>
+</li>
+<li>
+<p><kbd><b>content-security-policy</b></kbd> &#8212; позволяет настроить политику защиты содержимого, с помощью которой можно защищаться, например, от межсайтового скриптинга:</p>
+<pre><code class="language-html">&lt;meta http-equiv="content-security-policy" content="script-src 'self'"&gt;</code></pre>
+</li>
+</ul>
+<h3 id="style">6. Элемент &lt;style&gt;</h3>
+<p><b>Категории содержимого:</b> метаданные.</p>
+<p><b>Контекст, в котором этот элемент может быть использован:</b> где ожидаются метаданные. Внутри элемента <kbd>&lt;noscript&gt;</kbd> который является дочерним элементом <kbd>&lt;head&gt;</kbd>. Внутри <kbd>&lt;body&gt;</kbd>, где ожидается потоковое содержимое.</p>
+<p><b>Пропуск тегов:</b> ни один из тегов не может быть пропущен.</p>
+<p>Для элемента доступны <a href="https://html5book.ru/html-attributes/" target="_blank" rel="noopener noreferrer">‎глобальные атрибуты</a>, а также атрибуты, приведенные в таблице: </p>
+<table class="t3">
+<caption>Таблица 3. Атрибуты элемента &lt;style&gt;</caption>
+<tr>
+<th style="width: 20%;">Атрибут</th>
+<th>Описание, принимаемое значение</th>
+</tr>
+<tr>
+<td><kbd>media</kbd></td>
+<td>Указывает, к каким медиа применяются стили. Значение должно быть допустимым списком медиазапросов. Браузер должен применять стили, когда значение атрибута <kbd>media</kbd> соответствует среде и применяются другие соответствующие условия. Если атрибут <kbd>media</kbd> пропущен, по умолчанию он принимает значение <kbd>all</kbd>, то есть стили применяются ко всем видам медиа.</td>
+</tr>
+<tr>
+<td><kbd>nonce</kbd></td>
+<td>Представляет криптографический одноразовый номер, который может использоваться политикой безопасности содержимого, чтобы определить, будет ли стиль, указанный элементом, применяться к документу.</td>
+</tr>
+<tr>
+<td><kbd>type</kbd></td>
+<td>Устанавливает язык таблиц стилей, значение должно быть допустимым MIME-типом. Значением по умолчанию является <kbd>text/css</kbd>.</td>
+</tr>
+<tr>
+<td><kbd>title</kbd></td>
+<td>Задает альтернативное имя таблиц стилей.</td>
+</tr>
+</table>
+<p>Элемент <kbd>&lt;style&gt;</kbd> позволяет авторам встраивать информацию о стилях в свои документы. Элемент не представляет какое-либо содержимое для пользователя. </p>
+<p>Элемент <kbd>&lt;style&gt;</kbd> желательно использовать внутри раздела <kbd>&lt;head&gt;</kbd>.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Моя любимая книга&lt;/title&gt;
+    &lt;style&gt;
+      em {
+          font-style: normal;
+          color: red;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Моя &lt;em&gt;любимая&lt;/em&gt; книга - «Приключения Алисы в Стране чудес».&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><em>По материалам</em> <a target="_blank" rel="nofollow" href="https://html5book.ru/goto/https://www.w3.org/TR/html52/document-metadata.html#document-metadata" target="_blank" rel="nofollow noopener noreferrer" >Document metadata</a></p>
+<div class="nav-wrapper">
+<div class="nav-prev"><a href="https://html5book.ru/element-dokumenta">Элемент документа</a></div>
+<div class="nav-next"><a href="https://html5book.ru/razdely-dokumenta">Разделы документа</a></div>
+</div>
+
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div class="e64ad5ead3b1736eb206cd33a35b030d" data-index="1" style="float: none; margin:0px;">
+<div style="margin: 0 0 20px 0;clear:both;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- new -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4906567094890032"
+     data-ad-slot="3058577107"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div>                </div>
+
+                <div class="post-share">
+                    <h4>Поделиться:</h4>
+                    <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+                    <script src="//yastatic.net/share2/share.js"></script>
+                    <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,gplus"></div>
+                </div>
+
+                <div id="potok_flyroll_div" style="display:inline-block;width:600px;height:320px" potok_flyroll_pl="1762"></div>
+				<script type="text/javascript" src="https://videopotok.pro/js/potok_flyroll_script.js" async></script>
+
+                <div id="comments">
+                    
+<div id="disqus_thread"></div>
+                </div>
+
+            </div>
+                <aside class="primary">
+    <div class="widget"><div class="menu-aside-container"><ul id="menu-aside" class="menu"><li id="menu-item-1860" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1860"><a href="https://html5book.ru/html-html5/">HTML</a>
+<ul class="sub-menu">
+	<li id="menu-item-2804" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2804"><a href="https://html5book.ru/osnovy-html/">1.1. Основы HTML</a></li>
+	<li id="menu-item-1859" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1859"><a href="https://html5book.ru/html-tags/">1.2. HTML-теги</a></li>
+	<li id="menu-item-1841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1841"><a href="https://html5book.ru/html-attributes/">1.3. HTML-атрибуты</a></li>
+	<li id="menu-item-1847" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1847"><a href="https://html5book.ru/html-text/">1.4. HTML-текст</a></li>
+	<li id="menu-item-1845" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1845"><a href="https://html5book.ru/hyperlinks-in-html/">1.5. HTML-ссылки</a></li>
+	<li id="menu-item-1843" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1843"><a href="https://html5book.ru/images-in-html/">1.6. HTML-изображения</a></li>
+	<li id="menu-item-1846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1846"><a href="https://html5book.ru/html-table/">1.7. HTML-таблицы</a></li>
+	<li id="menu-item-1844" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1844"><a href="https://html5book.ru/html-lists/">1.8. HTML-списки</a></li>
+	<li id="menu-item-1858" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1858"><a href="https://html5book.ru/specsimvoly-html/">1.9. Спецсимволы HTML</a></li>
+	<li id="menu-item-1856" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1856"><a href="https://html5book.ru/poleznye-servisy-html/">1.10. HTML-генераторы</a></li>
+</ul>
+</li>
+<li id="menu-item-1862" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-1862"><a href="https://html5book.ru/html-html5/">HTML5</a>
+<ul class="sub-menu">
+	<li id="menu-item-2838" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-page-parent menu-item-2838"><a href="https://html5book.ru/html5-semantic-elements/">1.11. Семантические элементы HTML5</a></li>
+	<li id="menu-item-13788" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13788"><a href="https://html5book.ru/element-dokument/">1.11.1. Элемент документа</a></li>
+	<li id="menu-item-13787" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-13574 current_page_item menu-item-13787"><a href="https://html5book.ru/metadannye-dokumenta/" aria-current="page">1.11.2. Метаданные документа</a></li>
+	<li id="menu-item-13786" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13786"><a href="https://html5book.ru/razdely-dokumenta/">1.11.3. Разделы документа</a></li>
+	<li id="menu-item-13823" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13823"><a href="https://html5book.ru/gruppirovka-soderzhimogo/">1.11.4. Группировка содержимого</a></li>
+	<li id="menu-item-13879" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13879"><a href="https://html5book.ru/semantika-urovnya-teksta/">1.11.5. Семантика уровня текста</a></li>
+	<li id="menu-item-13897" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13897"><a href="https://html5book.ru/pravki-dokumenta/">1.11.6. Правки документа</a></li>
+	<li id="menu-item-1848" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1848"><a href="https://html5book.ru/html5-audio/">1.12. HTML5-аудио</a></li>
+	<li id="menu-item-1849" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1849"><a href="https://html5book.ru/html5-video/">1.13. HTML5-видео</a></li>
+	<li id="menu-item-2011" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2011"><a href="https://html5book.ru/neobyazatelnye-tegi-html5/">1.14. Необязательные теги HTML5-разметки</a></li>
+	<li id="menu-item-5395" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5395"><a href="https://html5book.ru/html5-forms/">1.15. HTML5-формы</a></li>
+	<li id="menu-item-11113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11113"><a href="https://html5book.ru/kontentnaya-model-html5/">1.16. Контентная модель HTML5</a></li>
+</ul>
+</li>
+<li id="menu-item-1861" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1861"><a href="https://html5book.ru/css-css3/">CSS</a>
+<ul class="sub-menu">
+	<li id="menu-item-3695" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3695"><a href="https://html5book.ru/osnovy-css/">2.1. Основы CSS</a></li>
+	<li id="menu-item-13296" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13296"><a href="https://html5book.ru/css-blochnaya-model/">2.2. CSS блочная модель</a></li>
+	<li id="menu-item-3276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3276"><a href="https://html5book.ru/block-inline-elements/">2.3. Блочные и строчные элементы</a></li>
+	<li id="menu-item-3168" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3168"><a href="https://html5book.ru/css-position/">2.4. CSS-позиционирование</a></li>
+	<li id="menu-item-1837" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1837"><a href="https://html5book.ru/css-text/">2.5. CSS-текст</a></li>
+	<li id="menu-item-1840" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1840"><a href="https://html5book.ru/css-shrifty/">2.6. CSS-шрифты</a></li>
+	<li id="menu-item-1855" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1855"><a href="https://html5book.ru/styling-hyperlinks/">2.7. CSS-ссылки</a></li>
+	<li id="menu-item-1836" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1836"><a href="https://html5book.ru/css3-tables/">2.8. CSS-таблицы</a></li>
+	<li id="menu-item-1835" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1835"><a href="https://html5book.ru/css-spiski/">2.9. CSS-списки</a></li>
+	<li id="menu-item-2603" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2603"><a href="https://html5book.ru/css-background/">2.10. CSS-фон</a></li>
+	<li id="menu-item-2665" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2665"><a href="https://html5book.ru/css-border/">2.11. CSS-рамка</a></li>
+	<li id="menu-item-3752" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3752"><a href="https://html5book.ru/css-content/">2.12. CSS content</a></li>
+	<li id="menu-item-1842" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1842"><a href="https://html5book.ru/css-colors/">2.13. CSS-цвета</a></li>
+	<li id="menu-item-1853" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1853"><a href="https://html5book.ru/generatory-css/">2.14. CSS-генераторы</a></li>
+</ul>
+</li>
+<li id="menu-item-2534" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2534"><a href="https://html5book.ru/css-css3/">CSS3</a>
+<ul class="sub-menu">
+	<li id="menu-item-12927" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12927"><a href="https://html5book.ru/css3-ui/">2.15. CSS3 UI</a></li>
+	<li id="menu-item-2548" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2548"><a href="https://html5book.ru/css3-gradient/">2.16. CSS-градиент</a></li>
+	<li id="menu-item-3032" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3032"><a href="https://html5book.ru/css3-borders/">2.17. CSS3-рамка</a></li>
+	<li id="menu-item-3076" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3076"><a href="https://html5book.ru/css3-oformlenie-teksta/">2.18. CSS3-оформление текста</a></li>
+	<li id="menu-item-9975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9975"><a href="https://html5book.ru/css3-ten-bloka/">2.19. CSS-тень блока</a></li>
+	<li id="menu-item-3723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3723"><a href="https://html5book.ru/css3-transition/">2.20. CSS-переходы</a></li>
+	<li id="menu-item-3748" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3748"><a href="https://html5book.ru/css3-transform/">2.21. CSS-трансформации</a></li>
+	<li id="menu-item-3914" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3914"><a href="https://html5book.ru/css3-animation/">2.22. CSS-анимация</a></li>
+	<li id="menu-item-5880" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5880"><a href="https://html5book.ru/css3-flexbox/">2.23. CSS flexbox</a></li>
+	<li id="menu-item-5989" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5989"><a href="https://html5book.ru/css3-columns/">2.24. CSS columns</a></li>
+	<li id="menu-item-6186" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6186"><a href="https://html5book.ru/3d-transform/">2.25. CSS 3D-трансформации</a></li>
+	<li id="menu-item-6237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6237"><a href="https://html5book.ru/css3-mediazaprosy/">2.26. CSS-медиазапросы</a></li>
+	<li id="menu-item-8072" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8072"><a href="https://html5book.ru/css3-filtry/">2.27. CSS-фильтры</a></li>
+	<li id="menu-item-12703" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12703"><a href="https://html5book.ru/css-grid/">2.28. CSS Grid</a></li>
+	<li id="menu-item-12828" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12828"><a href="https://html5book.ru/css3-shrifty/">2.29. CSS3-шрифты</a></li>
+	<li id="menu-item-13364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13364"><a href="https://html5book.ru/css3-perepolnenie/">2.30. CSS3-переполнение</a></li>
+	<li id="menu-item-13517" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13517"><a href="https://html5book.ru/css3-sposoby-pisma/">2.31. CSS3-способы письма</a></li>
+</ul>
+</li>
+<li id="menu-item-5592" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5592"><a href="https://html5book.ru/javascript-jquery/">JavaScript</a>
+<ul class="sub-menu">
+	<li id="menu-item-5593" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5593"><a href="https://html5book.ru/osnovy-javascript/">3.1. Основы JavaScript</a></li>
+	<li id="menu-item-5701" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5701"><a href="https://html5book.ru/vyrazheniya-v-javascript/">3.2. Выражения в JavaScript</a></li>
+	<li id="menu-item-10758" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10758"><a href="https://html5book.ru/cikly-javascript/">3.3. Циклы JavaScript</a></li>
+</ul>
+</li>
+<li id="menu-item-1863" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1863"><a href="https://html5book.ru/javascript-jquery/">jQuery</a>
+<ul class="sub-menu">
+	<li id="menu-item-1851" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1851"><a href="https://html5book.ru/vvedenie-v-jquery/">3.10. Введение в jQuery</a></li>
+	<li id="menu-item-1854" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1854"><a href="https://html5book.ru/metody-jquery/">3.11. Методы jQuery</a></li>
+	<li id="menu-item-6875" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6875"><a href="https://html5book.ru/jquery-manipulyacii/">3.11.1. Манипуляции HTML-элементами</a></li>
+	<li id="menu-item-6874" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6874"><a href="https://html5book.ru/jquery-svoistva-klassy-atribyti/">3.11.2. Чтение и изменение CSS-свойств, классов и атрибутов</a></li>
+	<li id="menu-item-6873" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6873"><a href="https://html5book.ru/jquery-vyborka-elementov/">3.11.3. Обход DOM и выборка HTML-элементов</a></li>
+	<li id="menu-item-6895" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6895"><a href="https://html5book.ru/jquery-animaciya/">3.11.4. jQuery анимация</a></li>
+	<li id="menu-item-6894" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6894"><a href="https://html5book.ru/jquery-metody-window/">3.11.5. Методы объекта window</a></li>
+	<li id="menu-item-1857" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1857"><a href="https://html5book.ru/sobytiya-jquery/">3.12. События jQuery</a></li>
+	<li id="menu-item-4153" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4153"><a href="https://html5book.ru/jquery-selectors/">3.13. Селекторы jQuery</a></li>
+</ul>
+</li>
+<li id="menu-item-1866" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1866"><a href="https://html5book.ru/web-topography/">Веб-типографика</a>
+<ul class="sub-menu">
+	<li id="menu-item-1850" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1850"><a href="https://html5book.ru/kakoj-shrift-mne-ispolzovat-pyat-principov-vybora-i-ispolzovaniya-shriftov/">4.1. Пять принципов выбора и использования шрифтов</a></li>
+	<li id="menu-item-1852" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1852"><a href="https://html5book.ru/shrift-dlya-sita/">4.2. Выбираем шрифт для сайта</a></li>
+	<li id="menu-item-7976" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7976"><a href="https://html5book.ru/pravila-veb-tipografiki/">4.3. Правила веб-типографики</a></li>
+</ul>
+</li>
+</ul></div></div>
+		<div class="widget">
+		<h4 class="sidebar-title">Свежие записи</h4>
+		<ul>
+											<li>
+					<a href="https://html5book.ru/krasivye-knopki-dlya-sayta-chast-4/">Красивые кнопки для сайта. Часть 4</a>
+									</li>
+											<li>
+					<a href="https://html5book.ru/idei-dizayna-shablona-zapisi-v-bloge/">Идеи дизайна шаблона записи в блоге</a>
+									</li>
+											<li>
+					<a href="https://html5book.ru/krasivoe-oformlenie-blokov-na-sayte/">Красивое оформление блоков на сайте</a>
+									</li>
+											<li>
+					<a href="https://html5book.ru/krasivye-knopki-dlya-sayta-chast-3/">Красивые кнопки для сайта. Часть 3</a>
+									</li>
+											<li>
+					<a href="https://html5book.ru/adaptivnaya-vyorstka-urok-tretiy-setka-iz-blokov/">Адаптивная вёрстка, урок третий. Сетка из блоков</a>
+									</li>
+											<li>
+					<a href="https://html5book.ru/krasivoe-oformlenie-izobrazheniy-na-saite/">Красивое оформление изображений на сайте</a>
+									</li>
+											<li>
+					<a href="https://html5book.ru/krasivye-knopki-dlya-sayta-chast-2/">Красивые кнопки для сайта. Часть 2</a>
+									</li>
+											<li>
+					<a href="https://html5book.ru/nestandartnye-bloki-na-sayte/">Нестандартные блоки на сайте</a>
+									</li>
+											<li>
+					<a href="https://html5book.ru/krasivaya-forma-dlya-sayta/">Красивая форма для сайта</a>
+									</li>
+											<li>
+					<a href="https://html5book.ru/idei-dlya-internet-magazina-kak-oformit-akciyu/">Идеи для интернет-магазина: как красиво оформить акцию</a>
+									</li>
+					</ul>
+
+		</div><div class="widget_text widget"><div class="textwidget custom-html-widget"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- new -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4906567094890032"
+     data-ad-slot="3058577107"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div><div class="widget_text widget"><div class="textwidget custom-html-widget"><iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0%20%D0%B8%20%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D0%B5%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20html5book.ru&targets-hint=&default-sum=&button-text=11&payment-type-choice=on&mobile-payment-type-choice=on&hint=&successURL=&quickpay=shop&account=41001967060125" width="100%" height="269" frameborder="0" allowtransparency="true" scrolling="no"></iframe></div></div></aside>        </div>
+</div>
+</main>
+<footer>
+    <div class="footer-top">
+        <div class="container">
+            <ul>
+                <li>&copy; Елена Назарова, 2014-2020</li>
+                <li>Коммерческое использование материалов сайта HTML5BOOK.RU запрещено. В остальных случаях обязательно наличие индексируемой ссылки со словом "Источник" на сайт или на страницу, содержащую этот материал.</li>
+            </ul>
+            <ul class="social">
+                <li><a href="https://codepen.io/nazarelen/"><i class="fa fa-codepen" title="Я на CODEPEN" target="_blank"></i></a></li>
+                <li><a href="https://codepen.io/html5book"><i class="fa fa-codepen" title="Я на CODEPEN" target="_blank"></i></a></li>
+                <li><img src="https://html5book.ru/wp-content/uploads/2019/01/elena.png"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+        <a href="https://fastvps.ru">Сайт работает на быстром VPS/VDS хостинге от FASTVPS</a>
+        </div>
+    </div>
+</footer>
+<span id="bruteprotect_uptime_check_string" style="display:none;">7ads6x98y</span><script type='text/javascript' id='disqus_count-js-extra'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"html5book"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://html5book.ru/wp-content/plugins/disqus-comment-system/public/js/comment_count.js?ver=3.0.17' id='disqus_count-js'></script>
+<script type='text/javascript' id='disqus_embed-js-extra'>
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"integration":"wordpress 3.0.17"},"disqusIdentifier":"13574 https:\/\/html5book.ru\/?page_id=13574","disqusShortname":"html5book","disqusTitle":"1.11.2. \u041c\u0435\u0442\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430","disqusUrl":"https:\/\/html5book.ru\/metadannye-dokumenta\/","postId":"13574"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://html5book.ru/wp-content/plugins/disqus-comment-system/public/js/comment_embed.js?ver=3.0.17' id='disqus_embed-js'></script>
+<div class="scroll-top"></div>
+</body>
+
+</html>

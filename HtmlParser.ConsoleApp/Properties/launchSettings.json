@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "HtmlParser.ConsoleApp": {
+      "commandName": "Project",
+      "commandLineArgs": "https://www.simbirsoft.com/"
+    }
+  }
+}

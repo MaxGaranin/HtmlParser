@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace HtmlParser.ConsoleApp
 {
@@ -6,10 +7,28 @@ namespace HtmlParser.ConsoleApp
     {
         public static async Task Main(string[] args)
         {
-            const string url = "https://www.simbirsoft.com/";
+            if (args.Length == 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine("HtmlParser - программа для подсчета уникальных слов на заданной web-странице.");
+                Console.WriteLine("-----------------------------------------------------------------------------");
+                Console.WriteLine("Как запускать: HtmlParser.ConsoleApp <Url>");
+                Console.WriteLine("Например:      HtmlParser.ConsoleApp https://www.simbirsoft.com/");
+                Console.WriteLine();
+                return;
+            }
 
-            var processor = new WebPageProcessor();
-            await processor.RunAsync(url);
+            var url = args[0];
+
+            try
+            {
+                var processor = new WebPageProcessor();
+                await processor.RunAsync(url);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Произошла ошибка в работе программы: {e.Message}");
+            }
         }
     }
 }
