@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlParser.ConsoleApp", "Ht
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlParser.Parser.Tests", "HtmlParser.Parser.Tests\HtmlParser.Parser.Tests.csproj", "{0EBCAB57-4F4A-4A9C-B13E-C441869AC444}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlParser.Parser", "HtmlParser.Parser\HtmlParser.Parser.csproj", "{C710C3DE-BB6A-4DDD-B919-9EB85C828304}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlParser.Parser", "HtmlParser.Parser\HtmlParser.Parser.csproj", "{C710C3DE-BB6A-4DDD-B919-9EB85C828304}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlParser.Utils", "HtmlParser.Utils\HtmlParser.Utils.csproj", "{BC64310D-2013-46D8-B56E-E63DD514CBE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlParser.Utils", "HtmlParser.Utils\HtmlParser.Utils.csproj", "{BC64310D-2013-46D8-B56E-E63DD514CBE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlParser.Common", "HtmlParser.Common\HtmlParser.Common.csproj", "{D0ED9B1D-86C7-403B-9795-D69D00B36A92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BC64310D-2013-46D8-B56E-E63DD514CBE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC64310D-2013-46D8-B56E-E63DD514CBE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC64310D-2013-46D8-B56E-E63DD514CBE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0ED9B1D-86C7-403B-9795-D69D00B36A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0ED9B1D-86C7-403B-9795-D69D00B36A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0ED9B1D-86C7-403B-9795-D69D00B36A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0ED9B1D-86C7-403B-9795-D69D00B36A92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

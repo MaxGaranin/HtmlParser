@@ -61,7 +61,7 @@ namespace HtmlParser.Parser.Parsers.AngleSharp
 
                 if (!string.IsNullOrEmpty(textContent))
                 {
-                    _texts.Add(textContent.ToLower());
+                    _texts.Add(textContent);
                 }
             }
 

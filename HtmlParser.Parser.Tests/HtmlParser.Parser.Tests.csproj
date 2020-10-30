@@ -17,9 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="SampleFiles\Глубокое погружение в систему рендеринга WPF _ Хабр.html">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
     <None Update="SampleFiles\Метаданные HTML-документа.html">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>

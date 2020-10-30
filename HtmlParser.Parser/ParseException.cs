@@ -3,7 +3,7 @@
 namespace HtmlParser.Parser
 {
     /// <summary>
-    /// Общее исключение для процесса парсинга разметки
+    /// Исключение, возникающее при парсинге разметки HTML
     /// </summary>
     public class ParseException : Exception
     {

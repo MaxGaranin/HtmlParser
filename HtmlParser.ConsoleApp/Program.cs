@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using HtmlParser.Common.Exceptions;
 
 namespace HtmlParser.ConsoleApp
 {
@@ -10,7 +11,7 @@ namespace HtmlParser.ConsoleApp
             if (args.Length == 0)
             {
                 Console.WriteLine();
-                Console.WriteLine("HtmlParser - программа для подсчета уникальных слов на заданной web-странице.");
+                Console.WriteLine("HtmlParser - утилита для подсчета уникальных слов на заданной веб-странице.");
                 Console.WriteLine("-----------------------------------------------------------------------------");
                 Console.WriteLine("Как запускать: HtmlParser.ConsoleApp <Url>");
                 Console.WriteLine("Например:      HtmlParser.ConsoleApp https://www.simbirsoft.com/");
@@ -25,9 +26,13 @@ namespace HtmlParser.ConsoleApp
                 var processor = new WebPageProcessor();
                 await processor.RunAsync(url);
             }
+            catch (HtmlParserException e)
+            {
+                Console.WriteLine(e.Message);
+            }
             catch (Exception e)
             {
-                Console.WriteLine($"Произошла необработааная ошибка в работе программы: {e.Message}");
+                Console.WriteLine($"Произошла необработанная ошибка в работе утилиты: {e.Message}");
             }
         }
     }
