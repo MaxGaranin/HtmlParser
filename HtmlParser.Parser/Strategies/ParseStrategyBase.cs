@@ -7,6 +7,9 @@ using AngleSharp.Text;
 
 namespace HtmlParser.Parser.Strategies
 {
+    /// <summary>
+    /// Базовый класс для стратегий парсинга разметки HTML
+    /// </summary>
     public abstract class ParseStrategyBase : IParseStrategy
     {
         protected ParseConfiguration Configuration;
@@ -21,8 +24,16 @@ namespace HtmlParser.Parser.Strategies
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// Основной метод запуска парсинга из потока
+        /// </summary>
+        /// <param name="streamReader">Входной поток</param>
         public abstract Task Parse(StreamReader streamReader);
 
+        /// <summary>
+        /// Метод запуска парсинга из строки
+        /// </summary>
+        /// <param name="text">Входная строка</param>
         public async Task Parse(string text)
         {
             var memoryStream = new MemoryStream(TextEncoding.Utf8.GetBytes(text));
@@ -30,6 +41,11 @@ namespace HtmlParser.Parser.Strategies
             await Parse(streamReader);
         }
 
+        /// <summary>
+        /// Выделение уникальных слов из текста с подсчетом количества их встречания в тексте.
+        /// </summary>
+        /// <param name="texts">Коллекция текстовых строк</param>
+        /// <returns>Словарь "уникальное слово" - "количество"</returns>
         protected Dictionary<string, int> ExtractUniqueWords(IEnumerable<string> texts)
         {
             var wordsDict = new Dictionary<string, int>();
@@ -53,6 +69,10 @@ namespace HtmlParser.Parser.Strategies
             return wordsDict;
         }
 
+        /// <summary>
+        /// Печать отчета о парсинге
+        /// </summary>
+        /// <param name="wordsDict">Словарь "уникальное слово" - "количество"</param>
         protected void PrintReport(IDictionary<string, int> wordsDict)
         {
             var textWriter = Configuration.TextWriter;

@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using HtmlParser.Parser.Parsers.AngleSharp;
@@ -9,6 +8,9 @@ using NUnit.Framework;
 
 namespace HtmlParser.Parser.Tests
 {
+    /// <summary>
+    /// Тесты для ручного парсинга
+    /// </summary>
     [TestFixture]
     public class ManualHtmlParserTests
     {

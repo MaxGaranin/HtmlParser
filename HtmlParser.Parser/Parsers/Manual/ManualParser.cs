@@ -4,6 +4,15 @@ using System.Linq;
 
 namespace HtmlParser.Parser.Parsers.Manual
 {
+    /// <summary>
+    /// "Сомописный" парсер выделения текстовых фрагментов из разметки HTML
+    /// без использования внешних библиотек-парсеров.
+    /// <remarks>
+    /// Парсер реализует возможность постепенной обработки информации, например,
+    /// если она читается из источника по частям.
+    /// Текущий накопленный результат обработки содержится в свойстве-коллекции ResultTexts.
+    /// </remarks>
+    /// </summary>
     public class ManualParser
     {
         private const string DummyTagName = "Dummy";
@@ -19,6 +28,10 @@ namespace HtmlParser.Parser.Parsers.Manual
         private bool _isInsideExcludeTag;
         private ParseMode _parseMode;
 
+        /// <summary>
+        /// Коллекция текстовых фрагментов из разметки HTML.
+        /// Текущий накопленный результат обработки.
+        /// </summary>
         public IEnumerable<string> ResultTexts
         {
             get { return _resultTags.SelectMany(x => x.TextContents); }
@@ -34,6 +47,9 @@ namespace HtmlParser.Parser.Parsers.Manual
             Reset();
         }
 
+        /// <summary>
+        /// Сброс парсера в начальное состояние
+        /// </summary>
         public void Reset()
         {
             _resultTags = new List<Tag>();
@@ -46,6 +62,10 @@ namespace HtmlParser.Parser.Parsers.Manual
             _currentTag = new Tag {TagName = DummyTagName, TagType = TagType.Opening};
         }
 
+        /// <summary>
+        /// Основной метод выделения текстовых фрагментов из разметки HTML
+        /// </summary>
+        /// <param name="inputString">Входная строка с разметкой HTML</param>
         public void ParseBlock(string inputString)
         {
             _inputString = _reminder + inputString;

@@ -4,7 +4,7 @@ using System.IO;
 namespace HtmlParser.Parser
 {
     /// <summary>
-    /// Конфигурация парсеров
+    /// Конфигурация стратегий парсинга
     /// </summary>
     public class ParseConfiguration
     {

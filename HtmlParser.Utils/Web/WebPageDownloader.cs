@@ -4,12 +4,12 @@ using System.Net;
 namespace HtmlParser.Utils.Web
 {
     /// <summary>
-    /// Класс, выполняющий загрузку страниц из сети
+    /// Класс, выполняющий загрузку HTML-страниц из сети
     /// </summary>
     public static class WebPageDownloader
     {
         /// <summary>
-        /// Загрузка страницы из сети в заданный файл на диске
+        /// Загрузка HTML-страницы из сети в заданный файл на диске
         /// </summary>
         /// <param name="url">Адрес страницы</param>
         /// <param name="outputFileName">Путь к выходному файлу</param>

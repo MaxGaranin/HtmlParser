@@ -4,6 +4,14 @@ using HtmlParser.Parser.Parsers.Manual;
 
 namespace HtmlParser.Parser.Strategies
 {
+    /// <summary>
+    /// Стратегия парсинга разметки HTML с использованием чтения информации
+    /// из входного потока по частям через буфер определенного размера
+    /// <remarks>
+    /// Рекомендуется использовать для чтения больших файлов,
+    /// которые целиком не помещаются в память
+    /// </remarks>
+    /// </summary>
     public class PartialReadParseStrategy : ParseStrategyBase
     {
         public PartialReadParseStrategy()
@@ -14,6 +22,10 @@ namespace HtmlParser.Parser.Strategies
         {
         }
 
+        /// <summary>
+        /// Основной метод запуска парсинга
+        /// </summary>
+        /// <param name="streamReader">Входной поток</param>
         public override async Task Parse(StreamReader streamReader)
         {
             var parser = new ManualParser(Configuration.ExcludeTags);

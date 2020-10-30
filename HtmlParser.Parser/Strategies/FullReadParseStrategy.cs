@@ -4,6 +4,10 @@ using HtmlParser.Parser.Parsers.AngleSharp;
 
 namespace HtmlParser.Parser.Strategies
 {
+    /// <summary>
+    /// Стратегия парсинга разметки HTML с использованием
+    /// полного чтения информации из истоника
+    /// </summary>
     public class FullReadParseStrategy : ParseStrategyBase
     {
         public FullReadParseStrategy()
@@ -14,6 +18,10 @@ namespace HtmlParser.Parser.Strategies
         {
         }
 
+        /// <summary>
+        /// Основной метод запуска парсинга из потока
+        /// </summary>
+        /// <param name="streamReader">Входной поток</param>
         public override async Task Parse(StreamReader streamReader)
         {
             var parser = new AngleSharpParser(Configuration.ExcludeTags);

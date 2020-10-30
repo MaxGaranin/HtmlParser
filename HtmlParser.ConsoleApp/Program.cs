@@ -27,7 +27,7 @@ namespace HtmlParser.ConsoleApp
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Произошла ошибка в работе программы: {e.Message}");
+                Console.WriteLine($"Произошла необработааная ошибка в работе программы: {e.Message}");
             }
         }
     }

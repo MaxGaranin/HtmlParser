@@ -3,6 +3,9 @@ using NUnit.Framework;
 
 namespace HtmlParser.Parser.Tests
 {
+    /// <summary>
+    /// Методы расширения для тестов
+    /// </summary>
     public static class TestExtensions
     {
         /// <summary>

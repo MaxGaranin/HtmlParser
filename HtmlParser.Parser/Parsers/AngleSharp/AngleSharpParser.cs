@@ -7,6 +7,12 @@ using AngleSharp.Html.Dom;
 
 namespace HtmlParser.Parser.Parsers.AngleSharp
 {
+    /// <summary>
+    /// Парсер выделения текстовых фрагментов из разметки HTML с помощью библиотеки AngleSharp
+    /// <remarks>
+    /// Подходит для парсинга страниц, прочитанных целиком в память.
+    /// </remarks>
+    /// </summary>
     public class AngleSharpParser
     {
         private readonly string[] _excludeTags;
@@ -21,10 +27,14 @@ namespace HtmlParser.Parser.Parsers.AngleSharp
             _excludeTags = excludeTags;
         }
 
-        public async Task<IEnumerable<string>> Parse(string text)
+        /// <summary>
+        /// Основной метод выделения текстовых фрагментов из разметки HTML
+        /// </summary>
+        /// <param name="inputString">Входная строка с разметкой HTML</param>
+        public async Task<IEnumerable<string>> Parse(string inputString)
         {
             var context = GetContext();
-            var document = await context.OpenAsync(req => req.Content(text));
+            var document = await context.OpenAsync(req => req.Content(inputString));
 
             _texts = new HashSet<string>();
             ParseElement(document.Body);
