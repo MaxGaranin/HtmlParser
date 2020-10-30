@@ -13,7 +13,7 @@ namespace HtmlParser.Parser.Parsers.Manual
     /// Текущий накопленный результат обработки содержится в свойстве-коллекции ResultTexts.
     /// </remarks>
     /// </summary>
-    public class ManualParser
+    public class ManualParser : IPartialTextParser
     {
         private const string DummyTagName = "Dummy";
 

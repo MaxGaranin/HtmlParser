@@ -13,7 +13,7 @@ namespace HtmlParser.Parser.Parsers.AngleSharp
     /// Подходит для парсинга страниц, прочитанных целиком в память.
     /// </remarks>
     /// </summary>
-    public class AngleSharpParser
+    public class AngleSharpParser : IFullTextParser
     {
         private readonly string[] _excludeTags;
         private HashSet<string> _texts;
@@ -31,7 +31,7 @@ namespace HtmlParser.Parser.Parsers.AngleSharp
         /// Основной метод выделения текстовых фрагментов из разметки HTML
         /// </summary>
         /// <param name="inputString">Входная строка с разметкой HTML</param>
-        public async Task<IEnumerable<string>> Parse(string inputString)
+        public async Task<IEnumerable<string>> ParseAsync(string inputString)
         {
             var context = GetContext();
             var document = await context.OpenAsync(req => req.Content(inputString));

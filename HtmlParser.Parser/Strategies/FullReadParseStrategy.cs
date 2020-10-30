@@ -34,7 +34,7 @@ namespace HtmlParser.Parser.Strategies
             IEnumerable<string> texts;
             try
             {
-                texts = await parser.Parse(fileContent);
+                texts = await parser.ParseAsync(fileContent);
             }
             catch (Exception e)
             {

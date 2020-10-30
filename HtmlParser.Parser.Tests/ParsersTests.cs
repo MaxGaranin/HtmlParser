@@ -39,7 +39,7 @@ namespace HtmlParser.Parser.Tests
 
             var configuration = ParseConfiguration.Default();
             var parser = new AngleSharpParser(configuration.ExcludeTags);
-            var texts = (await parser.Parse(fileContent)).ToList();
+            var texts = (await parser.ParseAsync(fileContent)).ToList();
 
             Assert.AreEqual(290, texts.Count);
         }
@@ -48,7 +48,7 @@ namespace HtmlParser.Parser.Tests
         public async Task Test_AngleSharpParser_OnSomeInputString()
         {
             var parser = new AngleSharpParser();
-            var texts = (await parser.Parse($"<a>Hello world</a>")).ToList();
+            var texts = (await parser.ParseAsync($"<a>Hello world</a>")).ToList();
 
             Assert.AreEqual(1, texts.Count);
             Assert.AreEqual("Hello world", texts[0]);
