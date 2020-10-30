@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using HtmlParser.Common.Exceptions;
 using HtmlParser.Parser.Parsers.AngleSharp;
 using HtmlParser.Parser.Parsers.Manual;
 using NUnit.Framework;
@@ -48,7 +49,7 @@ namespace HtmlParser.Parser.Tests
         {
             var parser = new AngleSharpParser();
             var texts = (await parser.Parse($"<a>Hello world</a>")).ToList();
-            
+
             Assert.AreEqual(1, texts.Count);
             Assert.AreEqual("Hello world", texts[0]);
         }
@@ -62,6 +63,14 @@ namespace HtmlParser.Parser.Tests
 
             Assert.AreEqual(1, texts.Count);
             Assert.AreEqual("Hello world", texts[0]);
+        }
+
+        [Test]
+        public void Test_ManualParser_OnWrongInputString()
+        {
+            var parser = new ManualParser();
+
+            Assert.Throws<ParseException>(() => { parser.ParseBlock($"<a>Hello world</span>"); });
         }
     }
 }

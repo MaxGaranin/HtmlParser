@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Net;
+using HtmlParser.Common.Exceptions;
 
 namespace HtmlParser.Utils.Web
 {
@@ -16,17 +17,35 @@ namespace HtmlParser.Utils.Web
         public static void LoadToFile(string url, string outputFileName)
         {
             var request = WebRequest.Create(url);
-            var response = request.GetResponse();
-            
+
+            WebResponse response;
+            try
+            {
+                response = request.GetResponse();
+            }
+            catch (WebException e)
+            {
+                throw new HtmlParserException($"Ошибка при загрузке страницы '{url}'\nСообщение: {e.Message}");
+            }
+
             using var stream = response.GetResponseStream();
             using var sr = new StreamReader(stream);
-            using var sw = new StreamWriter(outputFileName);
 
-            var line = sr.ReadLine();
-            while (line != null)
+            try
             {
-                sw.WriteLine(line);
-                line = sr.ReadLine();
+                using var sw = new StreamWriter(outputFileName);
+
+                var line = sr.ReadLine();
+                while (line != null)
+                {
+                    sw.WriteLine(line);
+                    line = sr.ReadLine();
+                }
+            }
+            catch (IOException e)
+            {
+                throw new HtmlParserException(
+                    $"Ошибка при сохранеи страницы '{url}' в файл '{outputFileName}'\nСообщение: {e.Message}");
             }
         }
     }

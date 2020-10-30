@@ -5,7 +5,7 @@ using System.Linq;
 namespace HtmlParser.Parser.Parsers.Manual
 {
     /// <summary>
-    /// "Сомописный" парсер выделения текстовых фрагментов из разметки HTML
+    /// "Самописный" парсер выделения текстовых фрагментов из разметки HTML
     /// без использования внешних библиотек-парсеров.
     /// <remarks>
     /// Парсер реализует возможность постепенной обработки информации, например,
@@ -142,7 +142,7 @@ namespace HtmlParser.Parser.Parsers.Manual
                         if (_currentTag.TagName != tag.TagName ||
                             _currentTag.TagType != TagType.Opening)
                         {
-                            throw new ParseException("Syntax error! Tags don't correspond to each other.");
+                            throw new ParseException("Синтаксическая ошибка! Теги не соответствуют друг другу.");
                         }
 
                         _currentTag.TagType = TagType.Complete;

@@ -1,5 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
+using HtmlParser.Common.Exceptions;
 using HtmlParser.Parser.Parsers.AngleSharp;
 
 namespace HtmlParser.Parser.Strategies
@@ -27,7 +30,16 @@ namespace HtmlParser.Parser.Strategies
             var parser = new AngleSharpParser(Configuration.ExcludeTags);
 
             var fileContent = await streamReader.ReadToEndAsync();
-            var texts = await parser.Parse(fileContent);
+
+            IEnumerable<string> texts;
+            try
+            {
+                texts = await parser.Parse(fileContent);
+            }
+            catch (Exception e)
+            {
+                throw new HtmlParserException($"Ошибка в процессе парсинга: {e.Message}");
+            }
 
             var wordsDict = ExtractUniqueWords(texts);
             PrintReport(wordsDict);

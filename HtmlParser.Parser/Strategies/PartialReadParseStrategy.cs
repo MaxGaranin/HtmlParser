@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
+using HtmlParser.Common.Exceptions;
 using HtmlParser.Parser.Parsers.Manual;
 
 namespace HtmlParser.Parser.Strategies
@@ -48,8 +50,15 @@ namespace HtmlParser.Parser.Strategies
                 var textBlock = count == Configuration.BufferSize 
                     ? new string(buffer) 
                     : new string(buffer[..count]);
-                
-                parser.ParseBlock(textBlock);
+
+                try
+                {
+                    parser.ParseBlock(textBlock);
+                }
+                catch (ParseException e)
+                {
+                    throw new HtmlParserException($"Ошибка в процессе парсинга: {e.Message}");
+                }
             }
         }
     }
